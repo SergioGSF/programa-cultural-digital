@@ -32,11 +32,11 @@ O objetivo deste sistema é auxiliar no acompanhamento básico de sinais vitais,
 
 1. Clone o repositório
 
-git clone link-do-repositorio
+git clone https://github.com/SergioGSF/monitoramento-sinais-vitais
 
 2. Acesse a pasta do projeto
 
-cd nome-do-projeto
+cd monitoramento-sinais-vitais
 
 3. Execute a aplicação
 
