@@ -57,7 +57,6 @@ O projeto segue uma arquitetura baseada no padrão MVC:
 - Templates: páginas HTML renderizadas com Thymeleaf  
 
 ## Possíveis Melhorias Futuras
-
 - Integração com APIs de geolocalização e mapas 
 - Sistema de notificação automática  
 - Integração odiciais com sistemas governamentais
@@ -74,3 +73,5 @@ O projeto segue uma arquitetura baseada no padrão MVC:
 - Sergio Gonçalves da Silva Filho
 
 ## Entrega 1
+- Histórias de usuário:
+https://docs.google.com/document/d/1lhORnMbUCOVKTaVsYzWjMuSxe1MJcixIdLyDGVHj028/edit?usp=sharing
