@@ -75,7 +75,7 @@ O projeto segue uma arquitetura baseada no padrão MVC:
 ## Entrega 1
 - Histórias de usuário:
 https://docs.google.com/document/d/1lhORnMbUCOVKTaVsYzWjMuSxe1MJcixIdLyDGVHj028/edit?usp=sharing
-- Figma:
+- Screencast do Figma:
 https://youtu.be/ahp9xVqzgTo
 - Trello:
 https://trello.com/invite/b/69b5c446be6c97a50237b22a/ATTI5c630be81ca5f84d143179c6cc39e15402DBF0AC/poo-projeto-arena-cultural
