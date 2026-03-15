@@ -75,3 +75,5 @@ O projeto segue uma arquitetura baseada no padrão MVC:
 ## Entrega 1
 - Histórias de usuário:
 https://docs.google.com/document/d/1lhORnMbUCOVKTaVsYzWjMuSxe1MJcixIdLyDGVHj028/edit?usp=sharing
+- Figma:
+https://youtu.be/ahp9xVqzgTo
