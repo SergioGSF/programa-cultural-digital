@@ -1,0 +1,194 @@
+:root {
+    --laranja: #FF5722;
+    --laranja-hover: #E64A19;
+    --sidebar-bg: #212529;
+    --fundo-cinza: #f8f9fa;
+    --branco: #ffffff;
+    --borda: #dee2e6;
+    --texto-claro: #adb5bd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--fundo-cinza);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.top-navbar {
+    background-color: var(--laranja);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.logo-icon {
+    background: white;
+    color: var(--laranja);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.wrapper {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--texto-claro);
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding-top: 15px;
+}
+
+.sidebar-menu li {
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-menu li a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.sidebar-menu li.active {
+    background-color: #343a40;
+    color: white;
+    border-left-color: var(--laranja);
+}
+
+.sidebar-menu li:hover {
+    background-color: #343a40;
+    color: white;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--branco);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border: 1px solid var(--borda);
+}
+
+.card-header {
+    padding: 35px 30px 10px 30px;
+    text-align: center;
+}
+
+.card-header h2 {
+    color: #333;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.card-header p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.login-form {
+    padding: 30px;
+}
+
+.input-box {
+    margin-bottom: 25px;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: var(--laranja);
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+}
+
+.btn-entrar {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--laranja);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-entrar:hover {
+    background-color: var(--laranja-hover);
+}
+
+.card-footer {
+    padding: 20px 30px;
+    background: #fafafa;
+    border-top: 1px solid var(--borda);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.card-footer a {
+    color: var(--laranja);
+    text-decoration: none;
+    font-weight: bold;
+}
