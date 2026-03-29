@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Arena Pernambuco</title>
+    <link rel="stylesheet" th:href="@{/css/events.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <div class="logo-box">A</div>
+        <div>
+            <h1>Arena Pernambuco</h1>
+            <span>Eventos e Entretenimento</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#">Eventos</a>
+        <button class="btn">Entrar</button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>Descubra os melhores eventos</h2>
+    <p>Na Arena Pernambuco, o maior espaço de entretenimento do Nordeste</p>
+
+    <div class="search-box">
+        <input type="text" placeholder="Buscar eventos...">
+        <button>Buscar</button>
+    </div>
+</section>
+
+<!-- FILTROS -->
+<section class="filters">
+    <div class="tags">
+        <span class="active">Todos</span>
+        <span>Show</span>
+        <span>Festival</span>
+        <span>Esporte</span>
+        <span>Comédia</span>
+        <span>Cultural</span>
+        <span>Tecnologia</span>
+        <span>Teatro</span>
+    </div>
+
+
+
+    <div class="select-box">
+        <span class="icon">▾</span>
+        <select>
+            <option>Data mais próxima</option>
+            <option>Menor preço</option>
+            <option>Maior preço</option>
+            <option>Mais populares</option>
+        </select>
+    </div>
+
+</section>
+
+<p class="results">8 eventos encontrados</p>
+
+<!-- GRID -->
+<section class="grid">
+
+    <div class="card">
+        <img src="https://emc.empresaspioneiras.com.br/dbimagens/sabrina_carpenter_1200x675_16112023181207.webp" />
+        <span class="tag">Show</span>
+        <div class="content">
+            <h3>Show Nacional - Sabrina Carpenter</h3>
+            <p>17 de jun. de 2026 - 20:00</p>
+            <p>32.000 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>R$ 69.00</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://baladasbrasil.com.br/wp-content/uploads/lollapalooza-brasil-sao-paulo-2025-aspect-ratio-845-540.png" />
+        <span class="tag">Festival</span>
+        <div class="content">
+            <h3>Show Nacional - Lollapalooza Brasil</h3>
+            <p>14 de abr. de 2026 - 20:00</p>
+            <p>32.000 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>R$ 365.00</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.cob.org.br/_next/image?url=https%3A%2F%2Fadmin.cob.org.br%2Fuploads%2F4116_f588e04a3d.webp&w=1920&q=75" />
+        <span class="tag">Esporte</span>
+        <div class="content">
+            <h3>Olimpíadas 2026- Patinação no gelo</h3>
+            <p>14 de abr. de 2026 - 20:00</p>
+            <p>32.000 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>R$ 150.00</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://cdn.esbrasil.com.br/wp-content/uploads/2021/09/02094646/barbixas-agenda.jpg" />
+        <span class="tag">Comédia</span>
+        <div class="content">
+            <h3>Espetáculo Improvável- Barbixas</h3>
+            <p>14 de abr. de 2026 - 20:00</p>
+            <p>32.000 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>R$ 150.00</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://senoticias.com.br/se/wp-content/uploads/2014/11/capoeiraa.jpg" />
+        <span class="tag">Cultural</span>
+        <div class="content">
+            <h3>Apresentação- Roda de Capoeira</h3>
+            <p>14 de abr. de 2026 - 20:00</p>
+            <p>32.000 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>Gratuíto</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.sympla.com.br/63475fd8ef44c.png" />
+        <span class="tag">Tecnologia</span>
+        <div class="content">
+            <h3>Evento- Rec´n Play 2026</h3>
+            <p>14 de abr. de 2026 - 20:00</p>
+            <p>32.000 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>Gratuíto</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/01/wicked-brasil.png?w=740" />
+        <span class="tag">Teatro</span>
+        <div class="content">
+            <h3>Peça Teatral- Wicked </h3>
+            <p>24 de abr. de 2026 - 21:00</p>
+            <p>7.200 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>R$ 120.00</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.sesc-rs.com.br/wp-content/uploads/2024/03/corrida-do-choque.jpg" />
+        <span class="tag">Esporte</span>
+        <div class="content">
+            <h3>Corrida Recife Antigo 10K</h3>
+            <p>29 de abr. de 2026 - 06:00</p>
+            <p>2.100 ingressos vendidos</p>
+            <div class="card-footer">
+                <strong>Gratuíto</strong>
+                <button>Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div>
+        <h3>Arena Pernambuco</h3>
+        <p>A maior arena multiuso do Nordeste.</p>
+    </div>
+
+    <div>
+        <h3>Contato</h3>
+        <p>Av. Deus é Fiel, 1 - PE</p>
+        <p>Tel: (81) 3184-4000</p>
+    </div>
+
+    <div>
+        <h3>Redes Sociais</h3>
+        <p>@arenapernambuco</p>
+    </div>
+</footer>
+
+</body>
+</html>
