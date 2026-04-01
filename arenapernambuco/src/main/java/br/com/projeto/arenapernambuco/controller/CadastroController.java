@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RegisterController {
     @GetMapping("/register")
     public String register() {
-        return "register"; // Isso procura por templates/register.html
+        return "register";
     }
 }
