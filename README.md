@@ -93,4 +93,7 @@ b5c446be6c97a50237b22a/ATTI5c630be81ca5f84d143179c6cc39e15402DBF0AC/poo-projeto-
 ## 📁 Entrega 2
 - Issues/bug tracker: 
 https://github.com/SergioGSF/programa-cultural-digital/issues
+<img width="1249" height="396" alt="image" src="https://github.com/user-attachments/assets/3c7b2096-07a9-4e0a-b841-a9791b0ccaa8" />
+<img width="1241" height="130" alt="image" src="https://github.com/user-attachments/assets/bb2408ab-6663-44f5-a544-7e8fd4e16017" />
+
 - Screencast 2 histórias:
