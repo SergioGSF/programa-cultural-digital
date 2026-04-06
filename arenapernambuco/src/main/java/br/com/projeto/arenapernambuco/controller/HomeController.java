@@ -6,12 +6,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
-    
+
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/events";
+    }
+
     @GetMapping("/home")
     public String home() {
         return "events";
     }
-    
+
     @GetMapping("/test-db")
     @ResponseBody
     public String testDb() {
