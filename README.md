@@ -33,6 +33,56 @@ Facilitar a comunicação entre interessados e a administração da Arena, incen
 - Conformidade: O tratamento de dados deve seguir as diretrizes da LGPD (Lei Geral de Proteção de Dados).
 - Ambiente: A aplicação deve ser executada obrigatoriamente em containers para garantir portabilidade entre servidores governamentais.
 
+## 📈 Indicadores de Monitoramento
+
+### 1. Indicadores de Uso da Plataforma
+
+- Quantidade de acessos ao sistema  
+- Número de usuários cadastrados  
+- Taxa de visualização de eventos  
+
+Objetivo: medir o alcance da vitrine digital e o interesse da população pelos eventos divulgados.
+
+### 2. Indicadores de Gestão de Eventos
+
+- Quantidade de eventos cadastrados  
+- Taxa de ocupação da Arena  
+- Taxxa de reservas confirmadas  
+- Taxa de cancelamento  
+
+Fórmula da Taxa de Ocupação:
+
+Taxa de Ocupação = (Eventos Realizados / Capacidade de Agenda Disponível) × 100
+
+Objetivo: avaliar o nível de aproveitamento do espaço público e apoiar decisões estratégicas da administração.
+
+### 3. Indicadores Administrativos
+
+- Tempo médio de resposta às solicitações  
+- Demandas pendentes  
+- Relatórios gerenciais emitidos  
+
+Objetivo: melhorar a eficiência da gestão pública no atendimento e no controle das reservas.
+
+### 4. Indicadores Técnicos
+
+- Disponibilidade do sistema (Uptime)  
+- Tempo médio de carregamento  
+- Número de falhas registradas  
+
+Fórmula do Uptime:
+
+Uptime = (Tempo de Funcionamento / Tempo Total) × 100
+
+Objetivo: garantir estabilidade, desempenho e acesso contínuo à plataforma.
+
+### 5. Indicadores de Segurança e Conformidade
+
+- Incidentes de segurança  
+- Controle de conformidade com a LGPD  
+
+Objetivo: assegurar proteção de dados e conformidade legal no ambiente governamental.
+
 ## 📊 Funcionalidades
 
 - Gestaõ de eventos  
