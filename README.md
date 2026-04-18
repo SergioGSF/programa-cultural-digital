@@ -21,7 +21,7 @@ Facilitar a comunicação entre interessados e a administração da Arena, incen
 ### 🗄️ Banco de Dados
 - MySQL (via Docker) 🐳
 
-## 🌐 Planejamento de Infraestrutura
+## 🏗️ Planejamento de Infraestrutura
 
 ### Objetivos da Infraestrutura
 - Disponibilidade: garantir que a vitrine de eventos esteja sempre online para consulta da população.
@@ -83,6 +83,80 @@ Objetivo: garantir estabilidade, desempenho e acesso contínuo à plataforma.
 
 Objetivo: assegurar proteção de dados e conformidade legal no ambiente governamental.
 
+## 🌐 Requisitos Técnicos de Rede
+
+### Desempenho
+
+#### Requisito de Negócio
+Garantir acesso rápido e contínuo da população à vitrine digital de eventos da :contentReference[oaicite:0]{index=0}, especialmente em períodos de grande divulgação.
+
+#### Requisito Técnico
+- Servidor com capacidade para múltiplas conexões simultâneas  
+- Baixa latência entre aplicação e banco de dados  
+- Monitoramento de CPU, memória e tráfego de rede  
+- Utilização de containers Docker para melhor gerenciamento de recursos  
+
+Objetivo: reduzir o tempo de resposta da aplicação e melhorar a experiência do usuário.
+
+### Segurança
+
+#### Requisito de Negócio
+Proteger dados de usuários, reservas e informações administrativas, garantindo conformidade com a LGPD.
+
+#### Requisito Técnico
+- Implementação de HTTPS com SSL/TLS  
+- Controle de acesso por autenticação e perfis  
+- Firewall para restrição de acessos indevidos  
+- Backup periódico do banco de dados MySQL  
+- Registro de logs e auditoria de acessos  
+
+Objetivo: garantir proteção da informação e conformidade legal.
+
+### Disponibilidade
+
+#### Requisito de Negócio
+Manter a plataforma acessível continuamente para consultas públicas e gestão administrativa.
+
+#### Requisito Técnico
+- Hospedagem em ambiente estável  
+- Monitoramento contínuo de uptime  
+- Backup automatizado e recuperação rápida  
+- Uso de containers para rápida restauração em falhas  
+
+Objetivo: garantir continuidade operacional e reduzir indisponibilidades.
+
+### Escalabilidade
+
+#### Requisito de Negócio
+Permitir crescimento do sistema conforme aumento da demanda e futuras integrações governamentais.
+
+#### Requisito Técnico
+- Arquitetura compatível com expansão horizontal  
+- Docker Compose para facilitar replicação  
+- Banco de dados preparado para aumento de volume  
+- Estrutura modular com Spring Boot e padrão MVC  
+
+Objetivo: permitir crescimento sem necessidade de reestruturação completa.
+
+### Conformidade Institucional
+
+#### Requisito de Negócio
+Atender às exigências da administração pública e compatibilidade com servidores governamentais.
+
+#### Requisito Técnico
+- Priorização de tecnologias Open Source  
+- Portabilidade entre ambientes com Docker  
+- Compatibilidade com infraestrutura institucional  
+- Padronização de implantação e versionamento  
+
+Objetivo: reduzir custos e garantir aderência às políticas internas de TI.
+
+## 🖧 Diagrama de Comunicação e Topologia de Rede
+
+A topologia adotada foi do tipo estrela hierárquica, com separação entre acesso externo e rede interna. O primeiro roteador faz a conexão com a internet, o segundo atua como firewall, e o switch central distribui o acesso aos servidores de aplicação, banco de dados e backup, garantindo segurança, disponibilidade e escalabilidade.
+
+<img width="511" height="424" alt="image" src="https://github.com/user-attachments/assets/04038325-54bc-429b-bb3a-a56a0d60c3a8" />
+
 ## 📊 Funcionalidades
 
 - Gestaõ de eventos  
@@ -117,7 +191,7 @@ mvn spring-boot:run
 
 http://localhost:8080
 
-## 🏗️ Estrutura do Projeto
+## 🧱 Estrutura do Projeto
 
 O projeto segue uma arquitetura baseada no padrão MVC:
 
@@ -159,3 +233,5 @@ https://github.com/SergioGSF/programa-cultural-digital/issues
 
 - Screencast 2 histórias: 
 https://youtu.be/QybrQOebOSA
+
+## 📁 Entrega 3
