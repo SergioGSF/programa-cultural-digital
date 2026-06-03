@@ -528,6 +528,35 @@ Objetivo: garantir estabilidade, desempenho e acesso contínuo à plataforma.
 
 Objetivo: assegurar proteção de dados e conformidade legal no ambiente governamental.
 
+## 📊 Avaliação de Desempenho da Infraestrutura
+
+A infraestrutura proposta para a Arena Pernambuco apresenta capacidade de crescimento gradual, garantindo disponibilidade, segurança e escalabilidade conforme o aumento da demanda.
+
+### Pontos Fortes
+
+* Arquitetura preparada para escalabilidade horizontal.
+* Utilização de balanceamento de carga para distribuição de acessos.
+* Comunicação assíncrona com RabbitMQ.
+* Possibilidade de evolução para microsserviços em nuvem.
+
+### Pontos de Melhoria
+
+* O banco de dados pode se tornar um gargalo em períodos de grande acesso.
+* A geração de relatórios e indicadores pode aumentar o consumo de recursos.
+* O crescimento do volume de dados exigirá otimização de consultas e armazenamento.
+
+### Melhorias Recomendadas
+
+* Implementação de cache com Redis.
+* Replicação e otimização do banco de dados.
+* Monitoramento com Prometheus e Grafana.
+* Auto Scaling para ajuste automático da infraestrutura.
+* Ampliação das estratégias de backup e recuperação de desastres.
+
+### Conclusão
+
+A infraestrutura atende adequadamente aos requisitos atuais da plataforma, porém futuras otimizações em banco de dados, monitoramento e escalabilidade serão importantes para garantir desempenho e disponibilidade em cenários de alta demanda.
+
 ## 🌐 Requisitos Técnicos de Rede
 
 ### Desempenho
