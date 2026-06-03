@@ -375,6 +375,18 @@ S3
 
 A evolução da infraestrutura ocorre de forma gradual, acompanhando o crescimento da demanda da plataforma, garantindo desempenho, disponibilidade e redução de custos operacionais.
 
+## 💰 Estimativa de Custos em Nuvem
+
+| Cenário      | Infraestrutura                                                  | Custo Mensal Estimado |
+| ------------ | --------------------------------------------------------------- | --------------------- |
+| 🟢 Baixo Uso | 1 EC2, RDS MySQL, S3 e Load Balancer                            | US$ 40 – 80           |
+| 🟡 Médio Uso | 2 EC2, RDS MySQL, RabbitMQ, CloudFront e Load Balancer          | US$ 150 – 350         |
+| 🔴 Alto Uso  | EKS, Aurora Cluster, RabbitMQ Cluster, API Gateway e CloudFront | US$ 800 – 2.000       |
+
+### Conclusão
+
+A infraestrutura foi projetada para crescer conforme a demanda da plataforma, permitindo iniciar com baixo custo operacional e expandir os recursos de forma gradual à medida que o número de usuários e eventos aumenta.
+
 ## 🚀 Estratégia de Deploy em Ambiente Real
 
 A estratégia de implantação da plataforma Arena Pernambuco foi definida para garantir disponibilidade, segurança, escalabilidade e facilidade de manutenção em ambiente de produção.
