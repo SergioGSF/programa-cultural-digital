@@ -540,6 +540,58 @@ Objetivo: garantir estabilidade, desempenho e acesso contínuo à plataforma.
 
 Objetivo: assegurar proteção de dados e conformidade legal no ambiente governamental.
 
+## 🧪 Testes de Desempenho, Conectividade e Disponibilidade
+
+### Teste de Conectividade
+
+Foi realizado teste de conectividade utilizando o comando `Test-NetConnection`, verificando o acesso à aplicação na porta 8080.
+
+#### Resultado
+
+* Conexão estabelecida com sucesso.
+* Porta 8080 acessível.
+* Comunicação validada entre cliente e servidor.
+
+### Teste de Disponibilidade
+
+Foram executadas múltiplas requisições consecutivas à aplicação para validar sua disponibilidade durante a operação.
+
+#### Resultado
+
+* 10 requisições executadas com sucesso.
+* Nenhuma falha ou indisponibilidade identificada.
+* Serviço permaneceu operacional durante todo o teste.
+
+### Teste de Desempenho
+
+Foi realizada medição do tempo de resposta da página de estatísticas da aplicação.
+
+#### Resultados Obtidos
+
+| Execução | Tempo de Resposta |
+| -------- | ----------------- |
+| Teste 1  | 79,99 ms          |
+| Teste 2  | 54,60 ms          |
+| Teste 3  | 56,40 ms          |
+
+**Tempo médio:** 63,66 ms
+
+Os resultados demonstram baixo tempo de resposta e bom desempenho da aplicação em ambiente local.
+
+### Teste de Carga
+
+Foi realizada simulação de 20 acessos simultâneos utilizando execução paralela de requisições.
+
+#### Resultado
+
+* 20 requisições simultâneas executadas.
+* Aplicação permaneceu disponível durante o teste.
+* Não foram observadas falhas de processamento ou indisponibilidade.
+
+### Conclusão
+
+Os testes realizados validaram os requisitos de conectividade, disponibilidade e desempenho da infraestrutura proposta para a plataforma Arena Pernambuco, demonstrando capacidade de atendimento às demandas atuais do sistema.
+
 ## 📊 Avaliação de Desempenho da Infraestrutura
 
 A infraestrutura proposta para a Arena Pernambuco apresenta capacidade de crescimento gradual, garantindo disponibilidade, segurança e escalabilidade conforme o aumento da demanda.
