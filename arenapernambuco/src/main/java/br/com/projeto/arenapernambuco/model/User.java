@@ -1,5 +1,6 @@
 package br.com.projeto.arenapernambuco.model;
 
+import br.com.projeto.arenapernambuco.config.CryptoConverter;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Convert(converter = CryptoConverter.class)
     private String name;
 
     @Column(unique = true)

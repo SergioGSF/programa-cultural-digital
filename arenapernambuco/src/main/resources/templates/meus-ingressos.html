@@ -50,20 +50,21 @@
 <main class="ticket-container">
     <h1 style="text-align: center; margin-bottom: 40px; color: #2d3436;">Os Meus Ingressos</h1>
 
-    <div th:if="${ingressos != null && ingressos.size() > 0}">
-        <div th:each="compra : ${ingressos}" class="ticket-card">
+    <div th:if="${ingressosMascarados != null && ingressosMascarados.size() > 0}">
+        <div th:each="compra, iterStat : ${ingressosMascarados}" class="ticket-card">
             <div class="ticket-img">
-                <img th:src="${compra.event?.imageUrl}" alt="Evento">
+                <img th:src="${ingressos[iterStat.index].event?.imageUrl}" alt="Evento">
                 <div class="ticket-overlay">ARENA PE</div>
             </div>
             <div class="ticket-info">
-                <h3 th:text="${compra.event?.title}">Nome do Evento</h3>
-                <div class="info-row"><strong>Titular:</strong> <span th:text="${compra.nome}">Nome</span></div>
-                <div class="info-row"><strong>CPF:</strong> <span th:text="${compra.cpf}">000.000.000-00</span></div>
+                <h3 th:text="${compra['eventoTitulo']}">Nome do Evento</h3>
+                <div class="info-row"><strong>Titular:</strong> <span th:text="${compra['nome']}">Nome</span></div>
+                <div class="info-row"><strong>CPF:</strong> <span th:text="${compra['cpf']}">***.***.***-**</span></div>
+                <div class="info-row"><strong>Data do Evento:</strong> <span th:text="${compra['eventoData']}">00/00/0000</span></div>
 
                 <div class="ticket-actions">
                     <button class="btn-print" onclick="window.print()">Imprimir</button>
-                    <form th:action="@{/cancelar-ingresso/{id}(id=${compra.id})}" method="post">
+                    <form th:action="@{/cancelar-ingresso/{id}(id=${ingressos[iterStat.index].id})}" method="post">
                         <button type="submit" class="btn-del" onclick="return confirm('Deseja cancelar?')">Cancelar</button>
                     </form>
                 </div>
@@ -71,7 +72,7 @@
         </div>
     </div>
 
-    <div th:if="${ingressos == null || ingressos.size() == 0}" style="text-align: center; padding: 60px 20px; background: white; border-radius: 12px; color: #666;">
+    <div th:if="${ingressosMascarados == null || ingressosMascarados.size() == 0}" style="text-align: center; padding: 60px 20px; background: white; border-radius: 12px; color: #666;">
         <p>Você ainda não possui ingressos.</p>
         <a th:href="@{/events}" style="display: inline-block; margin-top: 15px; background: #e67e22; color: white; padding: 10px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">Ver Eventos</a>
     </div>
