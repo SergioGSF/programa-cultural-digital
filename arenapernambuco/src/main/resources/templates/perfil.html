@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/springsecurity6"
+      lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Perfil - Arena Pernambuco</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/perfil.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo-container">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">
+            <span class="logo-title">Arena Pernambuco</span>
+            <span class="logo-subtitle">Eventos e Entretenimento</span>
+        </div>
+    </div>
+
+    <nav class="nav-links">
+        <a th:href="@{/events}">Eventos</a>
+        <a th:href="@{/meus-ingressos}">Meus Ingressos</a>
+        <a th:href="@{/perfil}" class="nav-active">Meu Perfil</a>
+
+        <div sec:authorize="isAnonymous()">
+            <a th:href="@{/login}" class="btn-primary" style="padding: 8px 20px;">Entrar</a>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post" style="margin:0;">
+                <button type="submit" class="btn-primary" style="padding:8px 20px; border:none; cursor:pointer;">
+                    Sair
+                </button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<main class="perfil-wrapper">
+
+    <!-- DADOS DO PERFIL -->
+    <div class="perfil-container">
+        <div class="perfil-header">
+            <div class="perfil-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div>
+                <h1 th:text="${user.name}">Nome do Usuário</h1>
+                <span class="perfil-role" th:text="${user.role}">citizen</span>
+            </div>
+        </div>
+
+        <div class="perfil-section">
+            <h2>Dados da Conta</h2>
+            <div class="perfil-field">
+                <span class="field-label">Nome</span>
+                <span class="field-value" th:text="${user.name}">Nome</span>
+            </div>
+            <div class="perfil-field">
+                <span class="field-label">E-mail</span>
+                <span class="field-value" th:text="${user.email}">email@exemplo.com</span>
+            </div>
+            <div class="perfil-field">
+                <span class="field-label">Perfil</span>
+                <span class="field-value" th:text="${user.role}">citizen</span>
+            </div>
+            <div class="perfil-field">
+                <span class="field-label">Consentimento LGPD</span>
+                <span class="field-value"
+                      th:text="${user.aceitouTermos ? 'Aceito em ' + user.dataConsentimento : 'Não registrado'}">
+                </span>
+            </div>
+        </div>
+
+        <!-- EXPORTAÇÃO DE DADOS -->
+        <div class="perfil-section">
+            <h2>Meus Dados <span class="lgpd-badge">LGPD — Art. 18</span></h2>
+            <p class="perfil-info">
+                De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018),
+                você tem o direito de acessar todos os dados que a plataforma possui sobre você.
+                Clique abaixo para exportar suas informações.
+            </p>
+            <a th:href="@{/perfil/exportar}" class="btn-exportar">
+                <i class="fas fa-download"></i> Exportar Meus Dados
+            </a>
+        </div>
+
+        <!-- EXCLUSÃO DE CONTA -->
+        <div class="perfil-section perfil-danger">
+            <h2>Zona de Risco</h2>
+            <p class="perfil-info">
+                Ao solicitar a exclusão da conta, todos os seus dados pessoais serão removidos
+                permanentemente da plataforma, incluindo histórico de ingressos.
+                Esta ação não pode ser desfeita.
+            </p>
+            <form th:action="@{/perfil/excluir}" method="post"
+                  onsubmit="return confirm('Tem certeza? Esta ação é irreversível.')">
+                <button type="submit" class="btn-excluir">
+                    <i class="fas fa-trash"></i> Excluir Minha Conta
+                </button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<footer class="perfil-footer">
+    <a th:href="@{/politica-privacidade}">Política de Privacidade</a>
+</footer>
+
+</body>
+</html>

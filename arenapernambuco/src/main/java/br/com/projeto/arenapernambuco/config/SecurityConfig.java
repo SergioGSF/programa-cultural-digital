@@ -21,15 +21,16 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/login",
-                    "/cadastro",
-                    "/events",
-                    "/compra/**",
-                    "/css/**",
-                    "/js/**",
-                    "/images/**"
-                ).permitAll()
+                    .requestMatchers(
+                            "/login",
+                            "/cadastro",
+                            "/events",
+                            "/compra/**",
+                            "/politica-privacidade",
+                            "/css/**",
+                            "/js/**",
+                            "/images/**"
+                    ).permitAll()
 
                 .requestMatchers("/empresa/**")
                 .hasRole("EMPRESA")

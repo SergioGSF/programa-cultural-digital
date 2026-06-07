@@ -61,67 +61,63 @@
 
     <nav class="nav-links"
          style="
-            display: flex;
-            gap: 25px;
-            align-items: center;
-         ">
+        display: flex;
+        gap: 25px;
+        align-items: center;
+     ">
 
         <a th:href="@{/events}"
            style="
-                text-decoration: none;
-                color: var(--laranja);
-                font-weight: bold;
-           ">
-
+            text-decoration: none;
+            color: var(--laranja);
+            font-weight: bold;
+       ">
             Eventos
-
         </a>
 
         <a th:href="@{/meus-ingressos}"
            style="
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+       ">
+            Meus Ingressos
+        </a>
+
+        <div sec:authorize="isAuthenticated()"
+             style="display: flex; gap: 25px; align-items: center;">
+
+            <a th:href="@{/perfil}"
+               style="
                 text-decoration: none;
                 color: #666;
                 font-size: 14px;
            ">
-
-            Meus Ingressos
-
-        </a>
-
-        <!-- MOSTRA ENTRAR SE NÃO ESTIVER LOGADO -->
-        <div sec:authorize="isAnonymous()">
-
-            <a th:href="@{/login}"
-               class="btn-primary"
-               style="padding: 8px 20px;">
-
-                Entrar
-
+                Meu Perfil
             </a>
-
-        </div>
-
-        <!-- MOSTRA SAIR SE ESTIVER LOGADO -->
-        <div sec:authorize="isAuthenticated()">
 
             <form th:action="@{/logout}"
                   method="post"
                   style="margin:0;">
-
                 <button type="submit"
                         class="btn-primary"
                         style="
-                            padding:8px 20px;
-                            border:none;
-                            cursor:pointer;
-                        ">
-
+                        padding:8px 20px;
+                        border:none;
+                        cursor:pointer;
+                    ">
                     Sair
-
                 </button>
-
             </form>
 
+        </div>
+
+        <div sec:authorize="isAnonymous()">
+            <a th:href="@{/login}"
+               class="btn-primary"
+               style="padding: 8px 20px;">
+                Entrar
+            </a>
         </div>
 
     </nav>

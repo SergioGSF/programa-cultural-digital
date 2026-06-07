@@ -22,4 +22,9 @@ public class HomeController {
     public String testDb() {
         return "Teste de conexão - verifique o console para logs do JPA";
     }
+
+    @GetMapping("/politica-privacidade")
+    public String politicaPrivacidade() {
+        return "politica-privacidade";
+    }
 }

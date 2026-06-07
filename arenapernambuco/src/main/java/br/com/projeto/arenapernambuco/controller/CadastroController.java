@@ -24,11 +24,15 @@ public class CadastroController {
 
     @PostMapping("/cadastro")
     public String cadastrar(User user) {
-        // Se o usuário não marcou nada, vira citizen por padrão
         if (user.getRole() == null) {
             user.setRole(User.Role.citizen);
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        if (Boolean.TRUE.equals(user.getAceitouTermos())) {
+            user.setDataConsentimento(java.time.LocalDateTime.now());
+        }
+
         userRepository.save(user);
         return "redirect:/login";
     }

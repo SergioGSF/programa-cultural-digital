@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/springsecurity6"
+      lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Meus Ingressos - Arena Pernambuco</title>
@@ -38,12 +40,41 @@
         <div style="background: #e67e22; color: white; padding: 5px 12px; border-radius: 5px; font-weight: bold;">A</div>
         <span style="font-weight: bold; color: #333;">Arena Pernambuco</span>
     </div>
-    <nav style="display: flex; gap: 20px; align-items: center;">
-        <a th:href="@{/events}" style="text-decoration: none; color: #666;">Eventos</a>
-        <a th:href="@{/meus-ingressos}" style="text-decoration: none; color: #e67e22; font-weight: bold;">Meus Ingressos</a>
-        <form th:action="@{/logout}" method="post" style="margin: 0;">
-            <button type="submit" style="background: #e67e22; color: white; padding: 8px 20px; border-radius: 6px; border: none; cursor: pointer; font-family: inherit; font-weight: 600;">Sair</button>
-        </form>
+
+    <nav class="nav-links" style="display: flex; gap: 25px; align-items: center;">
+        <a th:href="@{/events}"
+           style="text-decoration: none; color: #666; font-size: 14px;">
+            Eventos
+        </a>
+
+        <a th:href="@{/meus-ingressos}"
+           style="text-decoration: none; color: #e67e22; font-weight: bold; font-size: 14px;">
+            Meus Ingressos
+        </a>
+
+        <div sec:authorize="isAuthenticated()"
+             style="display: flex; gap: 25px; align-items: center;">
+
+            <a th:href="@{/perfil}"
+               style="text-decoration: none; color: #666; font-size: 14px;">
+                Meu Perfil
+            </a>
+
+            <form th:action="@{/logout}" method="post" style="margin: 0;">
+                <button type="submit"
+                        style="background: #e67e22; color: white; padding: 8px 20px; border-radius: 6px; border: none; cursor: pointer; font-family: inherit; font-weight: 600;">
+                    Sair
+                </button>
+            </form>
+
+        </div>
+
+        <div sec:authorize="isAnonymous()">
+            <a th:href="@{/login}"
+               style="background: #e67e22; color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                Entrar
+            </a>
+        </div>
     </nav>
 </header>
 
@@ -72,10 +103,21 @@
         </div>
     </div>
 
-    <div th:if="${ingressosMascarados == null || ingressosMascarados.size() == 0}" style="text-align: center; padding: 60px 20px; background: white; border-radius: 12px; color: #666;">
+    <div th:if="${ingressosMascarados == null || ingressosMascarados.size() == 0}"
+         style="text-align: center; padding: 60px 20px; background: white; border-radius: 12px; color: #666;">
         <p>Você ainda não possui ingressos.</p>
-        <a th:href="@{/events}" style="display: inline-block; margin-top: 15px; background: #e67e22; color: white; padding: 10px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">Ver Eventos</a>
+        <a th:href="@{/events}"
+           style="display: inline-block; margin-top: 15px; background: #e67e22; color: white; padding: 10px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+            Ver Eventos
+        </a>
     </div>
+
+    <footer style="text-align: center; padding: 30px; font-size: 12px; color: #999;">
+        <a th:href="@{/politica-privacidade}" style="color: #e67e22; text-decoration: none;">
+            Política de Privacidade
+        </a>
+    </footer>
 </main>
+
 </body>
 </html>

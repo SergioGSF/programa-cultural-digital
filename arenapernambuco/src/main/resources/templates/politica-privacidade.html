@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Política de Privacidade - Arena Pernambuco</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/politica-privacidade.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo-container">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">
+            <span class="logo-title">Arena Pernambuco</span>
+            <span class="logo-subtitle">Eventos e Entretenimento</span>
+        </div>
+    </div>
+</header>
+
+<div class="politica-wrapper">
+    <div class="politica-container">
+        <h1>Política de Privacidade</h1>
+        <p class="data-atualizacao">Última atualização: junho de 2026</p>
+
+        <p class="intro">A Arena Pernambuco valoriza a privacidade dos seus usuários e está comprometida com a proteção dos dados pessoais em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).</p>
+
+        <h2>1. Quais dados coletamos</h2>
+        <ul>
+            <li>Nome completo</li>
+            <li>Endereço de e-mail</li>
+            <li>CPF</li>
+            <li>Dados de pagamento (número do cartão, validade e CVV) — utilizados exclusivamente para processamento da compra</li>
+        </ul>
+
+        <h2>2. Como usamos seus dados</h2>
+        <ul>
+            <li>Criação e autenticação da sua conta</li>
+            <li>Processamento de compras de ingressos</li>
+            <li>Envio de confirmações de compra</li>
+        </ul>
+
+        <h2>3. Como protegemos seus dados</h2>
+        <p>Todos os dados sensíveis são armazenados de forma criptografada no banco de dados. Senhas são protegidas com algoritmo BCrypt. Dados como CPF, nome e informações de cartão utilizam criptografia AES.</p>
+
+        <h2>4. Seus direitos (Art. 18 da LGPD)</h2>
+        <ul>
+            <li>Acessar seus dados pessoais</li>
+            <li>Solicitar a correção de dados incompletos ou desatualizados</li>
+            <li>Solicitar a exclusão dos seus dados</li>
+            <li>Revogar o consentimento a qualquer momento</li>
+        </ul>
+
+        <h2>5. Contato</h2>
+        <p>Para exercer seus direitos ou esclarecer dúvidas, entre em contato pelo e-mail: <strong>privacidade@arenapernambuco.com.br</strong></p>
+
+        <div class="politica-footer">
+            <a th:href="@{/cadastro}">← Voltar ao cadastro</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

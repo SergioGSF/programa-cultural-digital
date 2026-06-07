@@ -1,0 +1,205 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-subtitle {
+    font-size: 10px;
+    color: #888;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #e67e22;
+}
+
+.nav-active {
+    color: #e67e22 !important;
+    font-weight: bold;
+}
+
+/* WRAPPER */
+.perfil-wrapper {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* CONTAINER */
+.perfil-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* HEADER DO PERFIL */
+.perfil-header {
+    background: #e67e22;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.perfil-avatar {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+}
+
+.perfil-header h1 {
+    margin: 0 0 6px 0;
+    color: white;
+    font-size: 22px;
+}
+
+.perfil-role {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* SEÇÕES */
+.perfil-section {
+    padding: 25px 30px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.perfil-section h2 {
+    font-size: 15px;
+    color: #333;
+    margin: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lgpd-badge {
+    background: #fff3e0;
+    color: #e67e22;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* CAMPOS */
+.perfil-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f8f8f8;
+    font-size: 14px;
+}
+
+.perfil-field:last-child {
+    border-bottom: none;
+}
+
+.field-label {
+    color: #999;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.field-value {
+    color: #333;
+}
+
+/* INFO TEXT */
+.perfil-info {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.7;
+    margin: 0 0 15px 0;
+}
+
+/* BOTÃO EXPORTAR */
+.btn-exportar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e67e22;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-exportar:hover {
+    background: #cf6d17;
+}
+
+/* ZONA DE RISCO */
+.perfil-danger {
+    border-bottom: none;
+}
+
+.perfil-danger h2 {
+    color: #e74c3c;
+}
+
+.btn-excluir {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: #e74c3c;
+    border: 1.5px solid #e74c3c;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-excluir:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+/* FOOTER */
+.perfil-footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 12px;
+}
+
+.perfil-footer a {
+    color: #e67e22;
+    text-decoration: none;
+}
+
+.perfil-footer a:hover {
+    text-decoration: underline;
+}
