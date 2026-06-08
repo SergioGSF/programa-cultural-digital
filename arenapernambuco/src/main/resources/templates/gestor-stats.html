@@ -62,6 +62,34 @@
         </div>
     </div>
 
+    <p class="section-title">Análise Estatística de Ingressos</p>
+    <div class="stats-grid">
+        <div class="stat-card azul">
+            <div class="stat-number"
+                 th:text="${#numbers.formatDecimal(mediaPreco, 1, 2, 'DEFAULT')}">0,00</div>
+            <div class="stat-label">Preço Médio dos Eventos (R$)</div>
+        </div>
+        <div class="stat-card laranja">
+            <div class="stat-number"
+                 th:text="${#numbers.formatDecimal(medianaPreco, 1, 2, 'DEFAULT')}">0,00</div>
+            <div class="stat-label">Mediana de Preços (R$)</div>
+        </div>
+        <div class="stat-card amarelo">
+            <div class="stat-number"
+                 th:text="${#numbers.formatDecimal(desvioPadrao, 1, 2, 'DEFAULT')}">0,00</div>
+            <div class="stat-label">Desvio Padrão de Preços (R$)</div>
+        </div>
+        <div class="stat-card verde">
+            <div class="stat-number" th:text="${modaCategoria}">—</div>
+            <div class="stat-label">Categoria Mais Frequente (Moda)</div>
+        </div>
+        <div class="stat-card azul">
+            <div class="stat-number"
+                 th:text="${#numbers.formatDecimal(ticketMedio, 1, 2, 'DEFAULT')}">0,00</div>
+            <div class="stat-label">Ticket Médio por Ingresso (R$)</div>
+        </div>
+    </div>
+
     <p class="section-title">Top 5 Eventos Mais Vendidos</p>
     <table class="data-table">
         <thead>

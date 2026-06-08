@@ -62,6 +62,24 @@
         </div>
     </div>
 
+    <p class="section-title">Análise Estatística dos Seus Eventos</p>
+    <div class="stats-grid">
+        <div class="stat-card azul">
+            <div class="stat-number"
+                 th:text="${#numbers.formatDecimal(mediaIngressos, 1, 2, 'DEFAULT')}">0,00</div>
+            <div class="stat-label">Média de Ingressos por Evento</div>
+        </div>
+        <div class="stat-card laranja">
+            <div class="stat-number" th:text="${modaEvento}">—</div>
+            <div class="stat-label">Evento Mais Vendido (Moda)</div>
+        </div>
+        <div class="stat-card amarelo">
+            <div class="stat-number"
+                 th:text="${#numbers.formatDecimal(desvioPadraoIngressos, 1, 2, 'DEFAULT')}">0,00</div>
+            <div class="stat-label">Desvio Padrão de Vendas</div>
+        </div>
+    </div>
+
     <p class="section-title">Ingressos por Evento</p>
     <table class="data-table">
         <thead>

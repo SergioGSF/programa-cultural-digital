@@ -16,6 +16,7 @@ import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/empresa")
@@ -121,6 +122,29 @@ public class EmpresaController {
                 .filter(e -> e.getStatus() == Evento.Status.APROVADO && e.getFullPrice() != null)
                 .mapToDouble(e -> compraRepository.countByEvento(e) * e.getFullPrice())
                 .sum();
+
+        List<Long> vendasPorEvento = new ArrayList<>(ingressosPorEvento.values());
+
+        double mediaIngressos = vendasPorEvento.isEmpty() ? 0.0 :
+                vendasPorEvento.stream().mapToLong(Long::longValue).average().orElse(0.0);
+
+        String modaEvento = ingressosPorEvento.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(e -> e.getKey().getTitle())
+                .orElse("N/A");
+
+        double desvioPadraoIngressos = 0.0;
+        if (vendasPorEvento.size() >= 2) {
+            double variancia = vendasPorEvento.stream()
+                    .mapToDouble(v -> Math.pow(v - mediaIngressos, 2))
+                    .average()
+                    .orElse(0.0);
+            desvioPadraoIngressos = Math.sqrt(variancia);
+        }
+
+        model.addAttribute("mediaIngressos",        mediaIngressos);
+        model.addAttribute("modaEvento",            modaEvento);
+        model.addAttribute("desvioPadraoIngressos", desvioPadraoIngressos);
 
         model.addAttribute("empresa", empresa);
         model.addAttribute("totalEventos", totalEventos);

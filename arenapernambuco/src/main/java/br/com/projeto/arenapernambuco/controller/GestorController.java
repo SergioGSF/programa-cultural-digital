@@ -10,10 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
@@ -59,14 +56,11 @@ public class GestorController {
     @GetMapping("/agenda")
     @Transactional
     public String agenda(Model model) {
-
         List<Evento> aprovados = eventoRepository.findByStatus(Evento.Status.APROVADO)
                 .stream()
                 .sorted(Comparator.comparing(Evento::getDate))
                 .collect(Collectors.toList());
-
         model.addAttribute("eventos", aprovados);
-
         return "gestor-agenda";
     }
 
@@ -74,43 +68,37 @@ public class GestorController {
     @Transactional
     public String stats(Model model) throws Exception {
 
-        List<Evento> todos = eventoRepository.findAll();
+        // ─── Futures existentes ───────────────────────────────────────────────
+        CompletableFuture<Long> totalEventosFuture   = estatisticaService.totalEventos();
+        CompletableFuture<Long> aprovadosFuture      = estatisticaService.aprovados();
+        CompletableFuture<Long> pendentesFuture      = estatisticaService.pendentes();
+        CompletableFuture<Long> canceladosFuture     = estatisticaService.cancelados();
+        CompletableFuture<Long> ingressosFuture      = estatisticaService.ingressosVendidos();
 
-        CompletableFuture<Long> totalEventosFuture =
-                estatisticaService.totalEventos();
+        // ─── Futures estatísticos novos ───────────────────────────────────────
+        CompletableFuture<Double> mediaPrecoFuture        = estatisticaService.mediaPrecoEventos();
+        CompletableFuture<Double> medianaPrecoFuture      = estatisticaService.medianaPrecoEventos();
+        CompletableFuture<Double> desvioPadraoFuture      = estatisticaService.desvioPadraoPrecos();
+        CompletableFuture<String> modaCategoriaFuture     = estatisticaService.modaCategoria();
+        CompletableFuture<Map<String, Long>> eventosCatFuture = estatisticaService.eventosPorCategoria();
+        CompletableFuture<Double> ticketMedioFuture       = estatisticaService.ticketMedioGeral();
 
-        CompletableFuture<Long> aprovadosFuture =
-                estatisticaService.aprovados();
-
-        CompletableFuture<Long> pendentesFuture =
-                estatisticaService.pendentes();
-
-        CompletableFuture<Long> canceladosFuture =
-                estatisticaService.cancelados();
-
-        CompletableFuture<Long> ingressosFuture =
-                estatisticaService.ingressosVendidos();
-
+        // ─── Aguarda todas as threads em paralelo ─────────────────────────────
         CompletableFuture.allOf(
-                totalEventosFuture,
-                aprovadosFuture,
-                pendentesFuture,
-                canceladosFuture,
-                ingressosFuture
+                totalEventosFuture, aprovadosFuture, pendentesFuture,
+                canceladosFuture, ingressosFuture,
+                mediaPrecoFuture, medianaPrecoFuture, desvioPadraoFuture,
+                modaCategoriaFuture, eventosCatFuture, ticketMedioFuture
         ).join();
 
-        long totalEventos = totalEventosFuture.get();
-        long aprovados = aprovadosFuture.get();
-        long pendentes = pendentesFuture.get();
-        long cancelados = canceladosFuture.get();
-        long totalIngressos = ingressosFuture.get();
-
+        // ─── Receita total ────────────────────────────────────────────────────
         double receita = compraRepository.findAll().stream()
-                .filter(c -> c.getEvent() != null &&
-                        c.getEvent().getFullPrice() != null)
+                .filter(c -> c.getEvent() != null && c.getEvent().getFullPrice() != null)
                 .mapToDouble(c -> c.getEvent().getFullPrice())
                 .sum();
 
+        // ─── Top 5 eventos por ingressos vendidos ─────────────────────────────
+        List<Evento> todos = eventoRepository.findAll();
         List<Evento> topEventos = todos.stream()
                 .sorted((a, b) -> Long.compare(
                         compraRepository.countByEvento(b),
@@ -119,21 +107,26 @@ public class GestorController {
                 .collect(Collectors.toList());
 
         Map<Evento, Long> ingressosPorEvento = new LinkedHashMap<>();
-
         for (Evento e : topEventos) {
-            ingressosPorEvento.put(
-                    e,
-                    compraRepository.countByEvento(e)
-            );
+            ingressosPorEvento.put(e, compraRepository.countByEvento(e));
         }
 
-        model.addAttribute("totalEventos", totalEventos);
-        model.addAttribute("aprovados", aprovados);
-        model.addAttribute("pendentes", pendentes);
-        model.addAttribute("cancelados", cancelados);
-        model.addAttribute("totalIngressos", totalIngressos);
-        model.addAttribute("receita", receita);
+        // ─── Model ────────────────────────────────────────────────────────────
+        model.addAttribute("totalEventos",      totalEventosFuture.get());
+        model.addAttribute("aprovados",         aprovadosFuture.get());
+        model.addAttribute("pendentes",         pendentesFuture.get());
+        model.addAttribute("cancelados",        canceladosFuture.get());
+        model.addAttribute("totalIngressos",    ingressosFuture.get());
+        model.addAttribute("receita",           receita);
         model.addAttribute("ingressosPorEvento", ingressosPorEvento);
+
+        // Estatística descritiva
+        model.addAttribute("mediaPreco",         mediaPrecoFuture.get());
+        model.addAttribute("medianaPreco",       medianaPrecoFuture.get());
+        model.addAttribute("desvioPadrao",       desvioPadraoFuture.get());
+        model.addAttribute("modaCategoria",      modaCategoriaFuture.get());
+        model.addAttribute("eventosPorCategoria", eventosCatFuture.get());
+        model.addAttribute("ticketMedio",        ticketMedioFuture.get());
 
         return "gestor-stats";
     }
