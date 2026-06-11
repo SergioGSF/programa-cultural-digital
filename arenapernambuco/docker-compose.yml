@@ -14,5 +14,13 @@ services:
       - mysql_data:/var/lib/mysql
       - ./src/main/resources/data.sql:/docker-entrypoint-initdb.d/data.sql
 
+  nginx:
+    image: nginx
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
 volumes:
   mysql_data:

@@ -30,7 +30,7 @@ public class AnonimizacaoService {
             // Anonimiza apenas citizens sem nenhuma compra registrada
             if (user.getRole() == User.Role.citizen) {
 
-                List compras = compraRepository.findByEmail(user.getEmail());
+                List<?> compras = compraRepository.findByEmail(user.getEmail());
 
                 if (compras.isEmpty()) {
                     user.setName("Usuário Anonimizado");
